@@ -13,13 +13,6 @@ export HISTFILE="$HOME/.zsh_history"
 
 export PATH="$HOME/.local/npm/globals/bin:$PATH"
 
-if [[ -d "/run/current-system/sw/share/zsh/site-functions" ]]; then
-    fpath=(/run/current-system/sw/share/zsh/site-functions $fpath)
-fi
-if [[ -d "$HOME/.nix-profile/share/zsh/site-functions" ]]; then
-    fpath=($HOME/.nix-profile/share/zsh/site-functions $fpath)
-fi
-
 autoload -Uz compinit
 if [[ -n "$HOME/.zcompdump"(#qN.m+1) ]]; then
     compinit -u
