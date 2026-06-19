@@ -16,9 +16,17 @@ if ! command -v stow &>/dev/null; then
     brew install stow
 fi
 
-# ── Install muthr (matches upstream docs exactly) ─────────────────────────────
+# ── Install muthr (Explicitly tapped & trusted) ───────────────────────────────
 echo "Installing muthr..."
-brew install tappunk/homebrew-muthr/muthr
+brew tap tappunk/muthr
+
+# 2. Pre-emptively trust the tap to eliminate the warning completely
+if command -v brew-trust &>/dev/null || brew respond-to trust &>/dev/null 2>&1 || true; then
+    brew trust tappunk/muthr 2>/dev/null || true
+fi
+
+# 3. Cleanly install the formula
+brew install muthr
 
 # ── Clean stale cache files (fixes parallel download errors) ────────────────────
 find "$HOME/Library/Caches/Homebrew/downloads" -name '*.incomplete' -delete 2>/dev/null || true
@@ -48,7 +56,7 @@ stow fastfetch --adopt
 
 # ── Create .npmrc if missing ───────────────────────────────────────────────────
 if [ ! -f "$HOME/.npmrc" ] || ! grep -q 'prefix=~/.local/npm/globals' "$HOME/.npmrc"; then
-    cat > "$HOME/.npmrc" <<'EOF'
+    cat >"$HOME/.npmrc" <<'EOF'
 prefix=~/.local/npm/globals
 cache=~/.local/npm/cache
 EOF
@@ -59,3 +67,4 @@ echo ""
 echo "Bootstrap complete."
 echo "Run 'muthr init' to clone muthr configs from tappunk/muthr-configs"
 echo ""
+
