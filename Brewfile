@@ -1,0 +1,20 @@
+# ── Core CLI tools ─────────────────────────────────────────────────────────────
+brew "bat"
+brew "delta"
+brew "eza"
+brew "fzf"
+brew "fastfetch"
+brew "git"
+brew "gnupg"
+brew "lazygit"
+brew "neovim"
+brew "pinentry-mac"
+brew "ripgrep"
+brew "starship"
+brew "stow"
+brew "yazi"
+brew "zoxide"
+
+# ── Zsh plugins (sourced from brew prefix in .zshrc) ──────────────────────────
+brew "zsh-syntax-highlighting"
+brew "zsh-autosuggestions"
