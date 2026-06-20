@@ -64,6 +64,6 @@ fi
 # ── Post-bootstrap reminder ────────────────────────────────────────────────────
 echo ""
 echo "Bootstrap complete."
-echo "Run 'muthr init' to clone muthr configs from tappunk/muthr-configs"
+echo "Run 'muthr init' to clone muthr specs from tappunk/muthr-specs"
 echo ""
 

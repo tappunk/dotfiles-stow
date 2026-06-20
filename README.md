@@ -34,7 +34,7 @@ cd ~/dotfiles-stow
 ./bootstrap.sh
 exec zsh
 
-# 2. Clone muthr configs from tappunk/muthr-configs
+# 2. Clone muthr specs from tappunk/muthr-specs
 muthr init
 ```
 
