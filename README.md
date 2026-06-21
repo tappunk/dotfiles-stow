@@ -10,7 +10,7 @@
 ## Architecture
 
 - **Inference** — `llama-server` on the host with configurable presets and auto VRAM management
-- **Agent isolation** — Debian 13 VMs via Lima (`vmType: vz`) that provide agent isolation and auto-stop when done
+- **Agent isolation** — Debian 13 VMs via Lima (`vmType: vz`) that provide agent isolation; VMs stay running until stopped with `muthr down`
 - **MCP services** — Dedicated Lima VM for potentially dangerous MCPs, isolated from the host
 - **System management** — GNU Stow symlinks + Homebrew bundle (Ghostty + Neovim + Starship)
 
