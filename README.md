@@ -5,7 +5,44 @@
 
 # dotfiles-stow
 
-**Hardened macOS dotfiles for a zero-trust local AI workstation. A stow + Homebrew reference implementation for [muthr](https://github.com/tappunk/muthr) that shows secure AI orchestration on Apple Silicon with reproducible Brewfile-managed dependencies.**
+**Hardened macOS dotfiles via GNU Stow for a zero-trust AI workstation.** Symlinked dotfiles with Homebrew and muthr integration.
+
+[What's installed](#whats-installed) • [Quick start](#quick-start) • [Architecture](#architecture) • [Updating](#updating)
+
+## What's installed
+
+- **Ghostty** — terminal emulator
+- **Neovim** — editor
+- **Zsh** — shell with Starship prompt
+- **Git** — with global ignore rules
+- **Eza** — modern ls replacement
+- **Fastfetch** — system info display
+- **muthr** — zero-trust AI orchestrator (installed via Homebrew tap during bootstrap)
+
+### Configuration files
+
+| Config       | Source                   | Installed at                           |
+| ------------ | ------------------------ | -------------------------------------- |
+| `ghostty/`   | `ghostty/`               | `~/.config/ghostty/config`             |
+| `nvim/`      | `nvim/`                  | `~/.config/nvim/`                      |
+| `zsh/`       | `zsh/`                   | `~/.zshrc`, `~/.zshenv`, `~/.zprofile` |
+| `git/`       | `git/`                   | `~/.gitconfig`, `~/.gitignore_global`  |
+| `starship/`  | `starship/starship.toml` | `~/.config/starship.toml`              |
+| `eza/`       | `eza/theme.yml`          | `~/.config/eza/theme.yml`              |
+| `fastfetch/` | `fastfetch/config.jsonc` | `~/.config/fastfetch/config.jsonc`     |
+
+Dotfiles are symlinked via GNU Stow. Homebrew packages are installed from the `Brewfile`. muthr stores runtime state (PIDs, logs, generated JSON) in `~/.cache/muthr/`.
+
+## Quick start
+
+```bash
+git clone https://github.com/tappunk/dotfiles-stow ~/dotfiles-stow
+cd ~/dotfiles-stow
+./bootstrap.sh
+exec zsh
+```
+
+Requires Xcode Command Line Tools. Homebrew, stow, and muthr are installed automatically during bootstrap.
 
 ## Architecture
 
@@ -14,50 +51,10 @@
 - **MCP services** — Dedicated Lima VM for potentially dangerous MCPs, isolated from the host
 - **System management** — GNU Stow symlinks + Homebrew bundle (Ghostty + Neovim + Starship)
 
-## Prerequisites
-
-macOS (Apple Silicon), Xcode Command Line Tools, ≥48 GB RAM for 35B models.
-
-> [!NOTE]
-> The ≥48GB RAM requirement applies to 35B models. Smaller models run on machines with less memory.
-
-## Usage
+## Updating
 
 ```bash
-# 0. Install Ghostty (recommended)
-# [https://ghostty.org/download](https://ghostty.org/download)
-
-# 1. Xcode Command Line Tools + bootstrap
-xcode-select --install
-git clone https://github.com/tappunk/dotfiles-stow.git ~/dotfiles-stow
 cd ~/dotfiles-stow
-./bootstrap.sh
-exec zsh
-
-# 2. Clone muthr specs from tappunk/muthr-specs
-muthr init
-```
-
-## Configuration
-
-Stow symlinks dotfiles from `~/dotfiles-stow/` to `~/.config/`:
-
-- `ghostty/` → `~/.config/ghostty/config`
-- `nvim/` → `~/.config/nvim`
-- `zsh/` → `~/.zshrc`, `~/.zshenv`, `~/.zprofile`
-- `git/` → `~/.gitconfig`, `~/.gitignore_global`
-- `starship/starship.toml` → `~/.config/starship.toml`
-- `eza/theme.yml` → `~/.config/eza/theme.yml`
-- `fastfetch/config.jsonc` → `~/.config/fastfetch/config.jsonc`
-
-Homebrew packages installed from `Brewfile`. muthr stores runtime state (PIDs, logs, generated JSON) in `~/.cache/muthr/`.
-
-## Installation
-
-```bash
-git clone https://github.com/tappunk/dotfiles-stow.git ~/dotfiles-stow
-cd ~/dotfiles-stow
+git pull
 ./bootstrap.sh
 ```
-
-Run `./bootstrap.sh` again after pulling changes to update packages and symlinks.
