@@ -38,7 +38,6 @@ brew bundle --file "$DOTFILES_DIR/Brewfile"
 # ── Create runtime directories ─────────────────────────────────────────────────
 echo "Creating runtime directories..."
 mkdir -p "$HOME/.cache/muthr"
-mkdir -p "$HOME/.lima"
 mkdir -p "$HOME/.local/bin"
 mkdir -p "$HOME/opt/models"
 
@@ -66,4 +65,3 @@ echo ""
 echo "Bootstrap complete."
 echo "Run 'muthr init' to clone muthr specs from tappunk/muthr-specs"
 echo ""
-

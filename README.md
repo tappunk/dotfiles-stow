@@ -46,9 +46,9 @@ Requires Xcode Command Line Tools. Homebrew, stow, and muthr are installed autom
 
 ## Architecture
 
-- **Inference** — `llama-server` on the host with configurable presets and auto VRAM management
-- **Agent isolation** — Debian 13 VMs via Lima (`vmType: vz`) that provide agent isolation; VMs stay running until stopped with `muthr down`
-- **MCP services** — Dedicated Lima VM for potentially dangerous MCPs, isolated from the host
+- **Inference** — `mlxcel-server` on the host with configurable presets and OpenAI-compatible API mode
+- **Agent isolation** — Debian 13 container-based sandboxes managed by `muthr sandbox *`
+- **MCP services** — Dedicated `muthr-services` container profile for isolated MCP and SearXNG routing
 - **System management** — GNU Stow symlinks + Homebrew bundle (Ghostty + Neovim + Starship)
 
 ## Updating
