@@ -55,3 +55,8 @@ dist/
 *.old
 *.orig
 *.rej
+
+.local/
+# Local AI agent config and instruction files
+.opencode/
+AGENTS.md

@@ -1,12 +1,13 @@
 [core]
     editor = nvim
-    pager = delta
+    pager = hunk pager
     excludesfile = ~/.gitignore_global
     autocrlf = input
     safecrlf = true
     fsmonitor = true 
     untrackedCache = true
     fileMode = false
+    hooksPath = ~/.githooks
 
 [init]
     defaultBranch = main
@@ -115,6 +116,10 @@
     ri = rebase -i HEAD~10
     rim = rebase -i main
     root = rev-parse --show-toplevel
+    hdiff = "-c core.pager=\"hunk pager\" diff"
+    hshow = "-c core.pager=\"hunk pager\" show"
+    hlog  = "-c core.pager=\"hunk pager\" log -p"
+    logs = log --show-signature
 
 [difftool "nvim"]
     cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
