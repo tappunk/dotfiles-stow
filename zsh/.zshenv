@@ -9,3 +9,11 @@ export UV_TOOL_BIN_DIR="$HOME/.local/bin"
 if [[ -d "$HOME/.local/bin" ]]; then
     path=("$HOME/.local/bin" $path)
 fi
+
+if [[ -d "/opt/homebrew/opt/rustup/bin" ]]; then
+    path=("/opt/homebrew/opt/rustup/bin" $path)
+fi
+
+if [[ -d "$HOME/.cargo/bin" ]]; then
+    path=("$HOME/.cargo/bin" $path)
+fi

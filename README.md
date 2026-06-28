@@ -18,6 +18,8 @@
 - **Eza** — modern ls replacement
 - **Fastfetch** — system info display
 - **muthr** — zero-trust AI orchestrator (installed via Homebrew tap during bootstrap)
+- **opencode MCP servers** — memory, filesystem, and sequential-thinking servers installed globally via npm during bootstrap
+- **Rust toolchain** — installed and managed via Homebrew `rustup` during bootstrap
 
 ### Configuration files
 
@@ -31,7 +33,7 @@
 | `eza/`       | `eza/theme.yml`          | `~/.config/eza/theme.yml`              |
 | `fastfetch/` | `fastfetch/config.jsonc` | `~/.config/fastfetch/config.jsonc`     |
 
-Dotfiles are symlinked via GNU Stow. Homebrew packages are installed from the `Brewfile`. muthr stores runtime state (PIDs, logs, generated JSON) in `~/.cache/muthr/`.
+Dotfiles are symlinked via GNU Stow. Homebrew packages are installed from the `Brewfile`. Bootstrap also installs global MCP servers required by opencode. muthr stores runtime state (PIDs, logs, generated JSON) in `~/.cache/muthr/`.
 
 ## Quick start
 
@@ -42,7 +44,7 @@ cd ~/dotfiles-stow
 exec zsh
 ```
 
-Requires Xcode Command Line Tools. Homebrew, stow, and muthr are installed automatically during bootstrap.
+Requires Xcode Command Line Tools. Homebrew, stow, muthr (including `lablup/tap` dependency), and opencode MCP servers are installed automatically during bootstrap.
 
 ## Architecture
 

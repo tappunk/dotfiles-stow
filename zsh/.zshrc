@@ -20,6 +20,25 @@ else
     compinit -C -u
 fi
 
+if command -v brew &>/dev/null; then
+    BREW_PREFIX="$(brew --prefix)"
+
+    [[ -f "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] && source "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+    [[ -f "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] && source "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+    if [[ -f "$BREW_PREFIX/opt/fzf/shell/key-bindings.zsh" ]]; then
+        source "$BREW_PREFIX/opt/fzf/shell/key-bindings.zsh"
+    elif [[ -f "$BREW_PREFIX/share/fzf/key-bindings.zsh" ]]; then
+        source "$BREW_PREFIX/share/fzf/key-bindings.zsh"
+    fi
+
+    if [[ -f "$BREW_PREFIX/opt/fzf/shell/completion.zsh" ]]; then
+        source "$BREW_PREFIX/opt/fzf/shell/completion.zsh"
+    elif [[ -f "$BREW_PREFIX/share/fzf/completion.zsh" ]]; then
+        source "$BREW_PREFIX/share/fzf/completion.zsh"
+    fi
+fi
+
 export SSH_AUTH_SOCK=$(launchctl getenv SSH_AUTH_SOCK)
 if [[ ! -S "$SSH_AUTH_SOCK" ]]; then
     for sock in /tmp/ssh-*/agent*(N); do
