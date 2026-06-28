@@ -35,6 +35,7 @@ brew "pass"
 brew "pass-otp"
 brew "macmon"
 brew "anomalyco/tap/opencode"
+brew "cmake"
 
 # ── Language servers and formatters ────────────────────────────────────────────
 brew "bash-language-server"
