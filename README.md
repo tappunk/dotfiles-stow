@@ -25,12 +25,8 @@
 
 | Config       | Source                   | Installed at                           |
 | ------------ | ------------------------ | -------------------------------------- |
-| `ghostty/`   | `ghostty/`               | `~/.config/ghostty/config`             |
-| `nvim/`      | `nvim/`                  | `~/.config/nvim/`                      |
 | `zsh/`       | `zsh/`                   | `~/.zshrc`, `~/.zshenv`, `~/.zprofile` |
 | `git/`       | `git/`                   | `~/.gitconfig`, `~/.gitignore_global`  |
-| `starship/`  | `starship/starship.toml` | `~/.config/starship.toml`              |
-| `eza/`       | `eza/theme.yml`          | `~/.config/eza/theme.yml`              |
 | `fastfetch/` | `fastfetch/config.jsonc` | `~/.config/fastfetch/config.jsonc`     |
 
 Dotfiles are symlinked via GNU Stow. Homebrew packages are installed from the `Brewfile`. Bootstrap also installs global MCP servers required by opencode. muthr stores runtime state (PIDs, logs, generated JSON) in `~/.cache/muthr/`.

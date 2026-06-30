@@ -78,10 +78,6 @@ echo "Linking dotfiles with stow..."
 cd "$DOTFILES_DIR"
 stow -vt "$HOME" git
 stow -vt "$HOME" zsh
-stow -vt "$HOME" ghostty
-stow -vt "$HOME" nvim
-stow -vt "$HOME" starship
-stow -vt "$HOME" eza
 stow -vt "$HOME" fastfetch
 
 # ── Ensure GPG pinentry matches macOS GUI pinentry ─────────────────────────────
@@ -125,10 +121,10 @@ fi
 chmod 600 "$GPG_AGENT_CONF"
 gpgconf --kill gpg-agent 2>/dev/null || true
 
-# ── Initialize muthr specs ─────────────────────────────────────────────────────
-muthr init --force
-
 # ── Post-bootstrap reminder ────────────────────────────────────────────────────
 echo ""
 echo "Bootstrap complete."
+echo ""
+echo "Run 'muthr init' to clone specs from tappunk/muthr-specs."
+
 echo ""

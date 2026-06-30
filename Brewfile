@@ -30,12 +30,12 @@ brew "asciinema"
 brew "exiftool"
 brew "imagemagick"
 brew "modem-dev/tap/hunk"
-brew "lima"
 brew "pass"
 brew "pass-otp"
 brew "macmon"
 brew "anomalyco/tap/opencode"
 brew "cmake"
+brew "agg"
 
 # ── Language servers and formatters ────────────────────────────────────────────
 brew "bash-language-server"
