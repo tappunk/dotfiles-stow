@@ -5,7 +5,7 @@
 
 # dotfiles-stow
 
-**Hardened macOS dotfiles via GNU Stow for a zero-trust AI workstation.** Symlinked dotfiles with Homebrew and muthr integration.
+**Reference macOS dotfiles via GNU Stow for a zero-trust AI workstation.** Symlinked dotfiles with Homebrew and muthr integration.
 
 [What's installed](#whats-installed) • [Quick start](#quick-start) • [Architecture](#architecture) • [Updating](#updating)
 
